@@ -65,12 +65,18 @@ class Dog
      end
 
      def self.find_by_name(name)
-        row = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name).first
+        row = DB[:conn].execute
+        ("SELECT * 
+            FROM dogs 
+            WHERE name = ?", name).first
         new_from_db(row) if row
     end
 
       def self.find(id)
-        row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id).first
+        row = DB[:conn].execute
+        ("SELECT * 
+            FROM dogs 
+            WHERE id = ?", id).first
         new_from_db(row) if row
     end
 end
